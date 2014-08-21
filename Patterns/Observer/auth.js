@@ -1,8 +1,8 @@
 var ridesoft = ridesoft || {};
-ridesoft.auth = ridesoft.auth || {};
+var ridesoft.auth = ridesoft.auth || {};
 
 (function(module, $, observer) {
-    ridesoft.auth = ridesoftwidget.extend(
+    ridesoft.auth = module.extend(
             (function(parent) {
                 var auth = {};
                 observer.topic('auth_check').subscribe(function(data) {

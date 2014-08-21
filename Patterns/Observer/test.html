@@ -1,0 +1,51 @@
+<html>
+<head><title>Esample Observer</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js" ></script>
+<script type="text/javascript" src="../module.js"></script>
+<script type="text/javascript" src="observer.js" ></script>
+
+</head>
+<body>
+	<div>
+	<p id="start">Observer Test</p>
+		<button id="testButton">Test</button>
+		
+	</div>
+	<script type="text/javascript">
+		var ridesoft = ridesoft || {};
+		ridesoft.test = ridesoft.test || {};
+
+(function(module, $, observer) {
+    ridesoft.test = module.extend(
+            (function(parent) {
+                var test = {};
+                ridesoft.observer.topic('test').subscribe(function(data) {
+                   $('#start').append('<p>'+data+'</p>');
+                   ridesoft.observer.topic('skate').publish("i'm looking you");
+                });
+				ridesoft.observer.topic('skate').subscribe(function(data) {
+                   $('#start').append('<p>'+data+'</p>');
+                   ridesoft.observer.topic('girl').publish("or i'm looking your girl?");
+                });
+				ridesoft.observer.topic('girl').subscribe(function(data) {
+                   $('#start').append('<p>'+data+'</p>');
+                   alert("shut up!");
+                });
+
+				test.init = function() {
+                    test.events(); 
+                };
+                test.events = function()	{
+                	$("#testButton").click(function(){
+						ridesoft.observer.topic('test').publish('skate and destroy');
+					});
+                } 
+            })(module)
+            );
+})(ridesoft.module, jQuery, ridesoft.observer);
+	$(document).ready(function() {
+		ridesoft.observer.init();
+	});
+	</script>
+</body>
+</html>
