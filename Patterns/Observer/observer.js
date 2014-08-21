@@ -4,15 +4,15 @@ ridesoft.observer = ridesoft.observer || {};
 (function(module, $) {
     ridesoft.observer = module.extend(
             (function(parent) {
-                
+                var observer = {};
                 /**
                  * Topics are used for subscribers to events
                  * @param {type} id
-                 * @returns {topic.Topic.topic|_L7.observers.Topic.topic}
+                 * 
                  */
-                observers.topic = function(id) {
+                observer.topic = function(id) {
                     var callbacks;
-                    if (!(id && observers[ id ])) {
+                    if (!(id && observer[ id ])) {
                         callbacks = jQuery.Callbacks();
                         result = {
                             publish: callbacks.fire,
@@ -20,12 +20,12 @@ ridesoft.observer = ridesoft.observer || {};
                             unsubscribe: callbacks.remove
                         };
                         if (id) {
-                            observers[ id ] = result;
+                            observer[ id ] = result;
                         }
                     }
                     return result;
                 };
-                return observers;
+                return observer;
             })(module)
             );
 }(ridesoft.module, jQuery));
