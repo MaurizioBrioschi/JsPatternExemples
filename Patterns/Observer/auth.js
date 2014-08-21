@@ -53,6 +53,6 @@ ridesoft.auth = ridesoft.auth || {};
                 };
                 
                 return auth;
-            })(ridesoftAuth)
+            })(module)
             );
 })(ridesoft.module, jQuery, ridesoft.observer);
