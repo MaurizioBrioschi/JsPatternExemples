@@ -4,8 +4,7 @@ JsPattern
 Essentials, best practices and Pattern to write good js code
 
 
-Patterns 
+Patterns
 ==========
 - Module
-- Observer
-
+- Observer 
