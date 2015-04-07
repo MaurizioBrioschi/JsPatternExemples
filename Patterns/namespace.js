@@ -1,7 +1,7 @@
 /**
-* This pattern (and relate function) permit to declare namespaces in your application for your modules
-* and permit to not redeclare the same module
-*/
+ * This pattern (and relate function) permit to declare namespaces in your application for your modules
+ * and permit to not redeclare the same module
+ */
 var MYAPP = MYAPP || {};
 MYAPP.namespace = function(ns_string) {
   var parts = ns_string.split('.'),
@@ -20,3 +20,12 @@ MYAPP.namespace = function(ns_string) {
   }
   return parent;
 }
+
+/**
+ * this is the way to include some modules in your functions
+ */
+var myFunction = function() {
+  // dependencies
+  var event = YAHOO.util.Event,
+    dom = YAHOO.util.Dom;
+};
