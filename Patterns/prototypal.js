@@ -18,3 +18,12 @@ var child = object(parent);
 if you want to clone only his prototype (structure)
 */
 var child = object(parent.prototype);
+
+/******************
+In Ecma5 this pattern is part of the language, you can use the function create
+*/
+var child = object.create(parent);
+//the function accept  additional parameters to add new properties
+var child = object.create(parent,{
+  age:{value:36}
+})
